@@ -1,25 +1,3 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 03/20/2016 03:34:24 PM
-// Design Name: 
-// Module Name: BM_tb
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
 module BM_tb;
     reg reset;
     reg [31:0] s1,s2;
@@ -27,9 +5,9 @@ module BM_tb;
     wire [15:0] x1;
     wire v;
     reg clk;
-    reg i;
-    reg [15:0] out0[9999:0];
-    reg [15:0]out1 [9999:0];
+    integer f,i;
+//    reg [15:0] out0[99:0];
+//    reg [15:0]out1 [99:0];
         BM bM (
         .clk(clk),
         .reset(reset),
@@ -40,6 +18,10 @@ module BM_tb;
         .x1(x1)
         );
    
+   initial begin
+   f=$fopen("x0.txt","w");
+   end
+   
     initial begin
     reset=1;
     clk=0;
@@ -47,14 +29,22 @@ module BM_tb;
     reset=0;
     s1='h67580;
     s2='h70385;
-    for (i=0;i<10000; i=i+1) begin
-  //  [15:0]out0[i]=x0;
-   // [15:0]out1[i]=x1;
+    for (i=0;i<100; i=i+1) begin
+//    out0[i]=x0;
+//    out1[i]=x1;
     clk=~clk;
-    #10;      
+    #10; 
+     $fwrite(f, "%b",i);     
     end
     end
-   
- 
+    
+    initial begin
+    $display("clk");
+    $monitor("%b",clk);
+    end
+    initial begin
+    $fclose(f);
+    end
+    
    
 endmodule
