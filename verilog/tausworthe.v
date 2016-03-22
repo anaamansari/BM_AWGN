@@ -32,24 +32,24 @@ module tausworthe(
   reg [31:0] b;
   reg [31:0] temp;
   
-  always@(reset)
-        begin
-        s0=s;
-        s1= 'h10850089 ^ s;
-        s2 = 'h89305309 ^s;  
-        y=0;
-        v=reset;
-        end
-        
+   always@(reset)
+                 begin
+                 v=reset;
+                 s0=s;
+                 s1= 'h10850089 ^ s;
+                 s2 = 'h89305309 ^s;
+                 y=0;
+                 end
+          
         always@(posedge clk && reset==0)
         begin
         b= ((s0<<13)^s0)>>19;
-        s0= ((s&'hfffffffe)<<12)^b;
+        s0= ((s0&'hfffffffe)<<12)^b;
         b= ((s1<<2)^s1)>>25;
         s1= ((s1&'hfffffff8)<<4)^b;
         b= ((s2<<3)^s2)>>11;
         s2= ((s2&'hfffffff0)<<17)^b;
-        temp=s1^s2;        
-        y=s0^temp;
+        temp=s0^s1;        
+        y=s2^temp;
        end
 endmodule
