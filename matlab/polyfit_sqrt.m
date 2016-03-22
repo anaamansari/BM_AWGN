@@ -9,8 +9,8 @@
 % simply change start_m to 2 and and end_m to 4.
 clear
 sqrt_seg=64;            
-start_m=2;
-end_m=4;
+start_m=1;
+end_m=2;
 B_sqrt=16;
 res_sqrt=(2^B_sqrt)/sqrt_seg;
 m=linspace(start_m,end_m,sqrt_seg);

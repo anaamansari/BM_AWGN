@@ -124,10 +124,10 @@ for i=1:length(x0)
 end
 
 %%
-
+x0_hw=load( 'x0_hw.mat');
 % run comparison
-err_cos= max(abs(X0(1,:)));
+err_cos= max(abs(X0(1,:)-x0_hw(1:));
 display(err_cos);
 
-spec_err_cos= 2^(-15);
+spec_err_cos= 2^(-14);
 display(spec_err_cos);

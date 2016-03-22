@@ -1,7 +1,6 @@
 %Anaam Ansari
 %
-% seed_1= fi(0,0,32,0);
-% seed_1.hex='67580';
+
 function [y]= taus(s,N)
     s0= fi(0,0,32,0);
     s1= fi(0,0,32,0);
@@ -17,9 +16,9 @@ function [y]= taus(s,N)
     mask1= fi(0,0,32,0);
     mask2= fi(0,0,32,0);
     
-    mask1.hex='FFFFFFFE';
-    mask2.hex='FFFFFFF8';
-    mask3.hex='FFFFFFF0';
+    mask0.hex='FFFFFFFE';
+    mask1.hex='FFFFFFF8';
+    mask2.hex='FFFFFFF0';
     
     s0=s;
     s1= bitxor(m1,s0);
