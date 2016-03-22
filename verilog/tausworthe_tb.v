@@ -34,15 +34,13 @@ tausworthe t(
 
 initial begin
     reset=1;
-     clk=0;
-    #5;
+    clk=0;
+    seed='h00067580;
+    #10;
     reset=0;
-    seed='h00000000;
-   
-    forever begin
-            #5;
-            clk=~clk;
-            end
+    
+
 end
+always #10 clk=~clk;
 
 endmodule

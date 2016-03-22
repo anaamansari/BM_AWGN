@@ -1,4 +1,24 @@
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/20/2016 03:34:24 PM
+// Design Name: 
+// Module Name: BM_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
 
 module BM_tb;
     reg reset;
@@ -21,19 +41,19 @@ module BM_tb;
         .x1(x1)
         );
     always begin
-    #10 clk=~clk; 
-     #10 
+    #10 clk=~clk;
+    #10
      $fwrite(f0,"%h\n",x0); 
      $fwrite(f1,"%h\n",x1);
      end
     initial begin
     reset=1;
     clk=0;
+     s1='h67580;
+     s2='h70385;
     reset=0;
-    s1='h67580;
-    s2='h70385;
-    f0= $fopen("x0.txt","w");
-    f1= $fopen("x1.txt","w");
+    f0= $fopen("x0.dat","w");
+    f1= $fopen("x1.dat","w");
     #20000
     $fclose(f0);
     $fclose(f1);

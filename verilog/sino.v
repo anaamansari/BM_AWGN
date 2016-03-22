@@ -36,7 +36,7 @@ module sino(
     always@(posedge clk ) begin
          quad=u1[15:14];            // first two bits for quad
          xg0=u1[13:0];              // input   
-         xg1='h1fff- u1[13:0];      // (pi/2)-xg1... (1-2^(-14)) - u1[13:0]
+         xg1='h1fff8- u1[13:0];      // (pi/2)-xg1... (1-2^(-14)) - u1[13:0]
         ind=u1[15:8];               // first 7 bits for coefficient addressing
         mult0=C0[ind]*xg0;          // for fixed point multiplication
         mult1=C1[ind]*xg1;          // fi multiplication    

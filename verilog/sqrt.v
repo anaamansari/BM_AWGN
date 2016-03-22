@@ -37,6 +37,9 @@ module sqrt(
                   $readmemh("Z:/BM/BM.srcs/sources_1/imports/new/C1_sqrt_1_2.txt", C1_a); // exp_f[0]=1, range[1,2) xf=xf1>>1
                   $readmemh("Z:/BM/BM.srcs/sources_1/imports/new/C0_sqrt_1_2.txt", C0_b);// exp_f[0]=0, range[2,4) xf=xf1
                   $readmemh("Z:/BM/BM.srcs/sources_1/imports/new/C1_sqrt_1_2.txt", C1_b);// exp_f[0]=0, range[2,4) xf=xf1
+            
+              
+                  
               end  
                
         wire v;
@@ -60,8 +63,13 @@ module sqrt(
                          );     
            
            always@(posedge clk ) begin
-           
-  //Range Reduction         
+           if (e==0)begin  
+                  mult=0;         
+                  yf=0;
+                  xf1=0;
+                  f=0;
+                  end
+        //Range Reduction         
               xf1= (e<< (exp_f-2 -1));    // (31,24)
               ind=e[30:25]; // six bits fo xf for index to look up  
                 if (exp_f[0])begin

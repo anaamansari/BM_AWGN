@@ -75,8 +75,12 @@ module BM(
                       .g0(g0),
                       .g1(g1)
                       ); 
+   always @(reset)begin
+   u0=0;
+   u1=0;
+   end
      
-     always @(posedge clk) begin
+     always @(posedge clk & reset==0) begin
        u0={{a},{b[31:16]}};
        u1=b[15:0];
         x0= f*g0;
