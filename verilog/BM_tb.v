@@ -40,9 +40,9 @@ module BM_tb;
         .x0(x0),
         .x1(x1)
         );
-    always begin
-    #10 clk=~clk;
-    #10
+    always #10 clk=~clk;
+   
+    always @(posedge clk) begin
      $fwrite(f0,"%h\n",x0); 
      $fwrite(f1,"%h\n",x1);
      end
