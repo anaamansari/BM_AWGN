@@ -1,0 +1,6 @@
+{
+  "name": "Hardware AWGN generator using Box Muller",
+  "tagline": "",
+  "body": "This project is based on the finding established in the following paper with certain modifications in bit-widths:\r\n[A Hardware Gaussian Noise Generator Using the Box-Muller Method and Its Error Analysis](http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=1628955&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1628955)",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
